@@ -1,8 +1,8 @@
-import 'package:firebasestarter/core/presentation/providers/providers.dart';
+import 'package:calendar_old/core/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
-import 'package:firebasestarter/generated/l10n.dart';
+import 'package:calendar_old/generated/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../data/model/user_repository.dart';
+import '../../model/user_repository.dart';
 
 class LoginForm extends StatefulWidget {
   @override

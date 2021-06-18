@@ -2,11 +2,11 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:firebasestarter/core/presentation/res/analytics.dart';
-import 'package:firebasestarter/core/presentation/res/app_config.dart';
-import 'package:firebasestarter/core/presentation/res/routes.dart';
-import 'package:firebasestarter/features/auth/presentation/pages/home.dart';
-import 'package:firebasestarter/generated/l10n.dart';
+import 'package:calendar_old/core/presentation/res/analytics.dart';
+import 'package:calendar_old/core/presentation/res/app_config.dart';
+import 'package:calendar_old/core/presentation/res/routes.dart';
+import 'package:calendar_old/features/auth/presentation/pages/home.dart';
+import 'package:calendar_old/generated/l10n.dart';
 
 import 'core/presentation/providers/providers.dart';
 import 'core/presentation/res/themes.dart';

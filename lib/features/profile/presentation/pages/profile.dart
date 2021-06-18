@@ -1,10 +1,10 @@
-import 'package:firebasestarter/core/presentation/providers/providers.dart';
+import 'package:calendar_old/core/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
-import 'package:firebasestarter/core/presentation/res/analytics.dart';
-import 'package:firebasestarter/core/presentation/res/routes.dart';
-import 'package:firebasestarter/features/auth/data/model/user_repository.dart';
-import 'package:firebasestarter/features/profile/presentation/widgets/avatar.dart';
-import 'package:firebasestarter/generated/l10n.dart';
+import 'package:calendar_old/core/presentation/res/analytics.dart';
+import 'package:calendar_old/core/presentation/res/routes.dart';
+import 'package:calendar_old/features/auth/model/user_repository.dart';
+import 'package:calendar_old/features/profile/presentation/widgets/avatar.dart';
+import 'package:calendar_old/generated/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserProfile extends StatelessWidget {

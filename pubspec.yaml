@@ -18,8 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"  # Null-Safety対応以前の古いSDK
-  #sdk: ">=2.12.0 <3.0.0"  # Null-Safety対応の最新SDK
+  #sdk: ">=2.2.2 <3.0.0"  # Null-Safety対応以前の古いSDK
+  sdk: ">=2.12.0 <3.0.0"  # Null-Safety対応の最新SDK
 
 dependencies:
   flutter:
@@ -30,33 +30,30 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  cloud_firestore: ^2.2.2  # Cloud Firestore APIを使用するためのFlutterプラグイン
+  cloud_firestore: ^1.0.7  # Cloud Firestore APIを使用するためのFlutterプラグイン
   device_info: ^2.0.2  # 2021年末に廃止される。Flutterアプリケーション内で、現在のデバイス情報を取得
   # device_info_plus: ^1.0.1  # Flutterアプリケーション内で、現在のデバイス情報を取得
-  firebase_analytics: ^8.1.2  #　firebase_analytics APIを使用するためのFlutterプラグイン
-  firebase_auth: ^1.4.1  #　firebase_auth APIを使用するためのFlutterプラグイン
-  firebase_core: ^1.3.0  #　複数のFirebaseアプリへの接続を可能にするFirebase Core APIを使用する
-  firebase_crashlytics: ^2.0.6  #　firebase_crashlytics APIを使用するためのFlutterプラグイン
-  firebase_helpers: ^0.4.0  #　様々なGoogle Firebase関連サービスのヘルパーを提供するパッケージ
-  firebase_messaging: ^10.0.2  #　Firebase Cloud Messaging APIを使用するためのFlutterプラグイン
-  firebase_remote_config: ^0.10.0+2  #　Firebase Remote Config APIを使用するためのFlutterプラグイン
-  firebase_storage: ^8.1.3  #　Firebase Cloud Storage APIを使用するためのFlutterプラグイン
-  flutter_auth_buttons: ^0.9.0  # このプラグインは廃止された
+  firebase_analytics: ^8.1.0  #　firebase_analytics APIを使用するためのFlutterプラグイン
+  firebase_auth: ^1.2.0  #　firebase_auth APIを使用するためのFlutterプラグイン
+  firebase_core: ^1.2.0  #　複数のFirebaseアプリへの接続を可能にするFirebase Core APIを使用する
+  firebase_crashlytics: ^2.0.4  #　firebase_crashlytics APIを使用するためのFlutterプラグイン
+  firebase_helpers: ^0.3.1  #　様々なGoogle Firebase関連サービスのヘルパーを提供するパッケージ
+  firebase_messaging: ^10.0.0  #　Firebase Cloud Messaging APIを使用するためのFlutterプラグイン
+  firebase_remote_config: ^0.10.0  #　Firebase Remote Config APIを使用するためのFlutterプラグイン
+  firebase_storage: ^8.1.0  #　Firebase Cloud Storage APIを使用するためのFlutterプラグイン
+  # flutter_auth_buttons: ^0.9.0  # このプラグインは廃止された
   flutter_form_builder: ^6.0.1  # データ収集フォームの作成に役立つ
   flutter_riverpod: ^0.14.0+3  # 状態管理ライブラリ
   flutter_svg: ^0.22.0  # SVG（および一部のAndroid VectorDrawable（XML））ファイルを描画
-  flutter_swiper: ^1.1.6  # 複数のレイアウトと無限ループを備えた、flutter用の最高のスワイパー
+  # flutter_swiper: ^1.1.6
   google_fonts: ^2.1.0  # fonts.google.comにある977種類のフォント（およびそのバリエーション）を簡単に使用
   google_sign_in: ^5.0.4  # Google Sign InのためのFlutterプラグイン
   image_cropper: ^1.4.0  # 画像のトリミングをサポート
-  image_picker:  ^0.8.0+3  # 画像ライブラリから画像を選択し、カメラで新しい写真を撮る
-  intl: ^0.17.0  # メッセージの翻訳、複数形と性別、日付/数字のフォーマットと解析、双方向テキストなど、国際化とローカライゼーションの機能を提供
+  image_picker: ^0.7.5+3  # 画像ライブラリから画像を選択し、カメラで新しい写真を撮る
+  intl: ^0.17.0 # メッセージの翻訳、複数形と性別、日付/数字のフォーマットと解析、双方向テキストなど、国際化とローカライゼーションの機能を提供
   package_info: ^2.0.2  # 2021年末に廃止される。アプリケーションパッケージに関する情報をクエリするためのAPIを提供
   #  package_info_plus: ^1.0.2  # アプリケーションパッケージに関する情報をクエリするためのAPIを提供
   table_calendar: ^3.0.0  # Flutter用の高度にカスタマイズ可能な機能満載のカレンダー
-  change_app_package_name: ^1.0.0  # 1つのコマンドでアプリパッケージ名を変更
-  #  flutter_automation: ^1.4.0  # プロジェクトのさまざまな側面を自動化するのに役立つさまざまな自動化スクリプトが含む
-  #  intl_translation: ^0.17.0  # 翻訳されたメッセージからのメッ セージ抽出とコード生成を提供
 
 dev_dependencies:
   flutter_test:

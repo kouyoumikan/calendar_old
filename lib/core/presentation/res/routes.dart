@@ -1,12 +1,12 @@
-import 'package:firebasestarter/features/events/presentation/pages/add_event.dart';
-import 'package:firebasestarter/features/events/presentation/pages/event_details.dart';
+import 'package:calendar_old/features/events/pages/add_event.dart';
+import 'package:calendar_old/features/events/pages/event_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:firebasestarter/features/auth/presentation/pages/home.dart';
-import 'package:firebasestarter/features/auth/presentation/pages/splash.dart';
-import 'package:firebasestarter/features/auth/presentation/pages/user_info.dart';
-import 'package:firebasestarter/features/profile/presentation/pages/edit_profile.dart';
-import 'package:firebasestarter/features/profile/presentation/pages/profile.dart';
+import 'package:calendar_old/features/auth/presentation/pages/home.dart';
+import 'package:calendar_old/features/auth/presentation/pages/splash.dart';
+import 'package:calendar_old/features/auth/presentation/pages/user_info.dart';
+import 'package:calendar_old/features/profile/presentation/pages/edit_profile.dart';
+import 'package:calendar_old/features/profile/presentation/pages/profile.dart';
 
 class AppRoutes {
   static const home = "/";

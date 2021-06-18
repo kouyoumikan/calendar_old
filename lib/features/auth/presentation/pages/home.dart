@@ -1,9 +1,9 @@
-import 'package:firebasestarter/core/presentation/providers/providers.dart';
+import 'package:calendar_old/core/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
-import 'package:firebasestarter/core/presentation/res/analytics.dart';
-import 'package:firebasestarter/features/home/presentation/pages/home.dart';
-import 'package:firebasestarter/features/onboarding/presentation/pages/intro.dart';
-import '../../data/model/user_repository.dart';
+import 'package:calendar_old/core/presentation/res/analytics.dart';
+import 'package:calendar_old/features/home//home.dart';
+import 'package:calendar_old/features/intro/intro.dart';
+import '../../model/user_repository.dart';
 import './splash.dart';
 import './login.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

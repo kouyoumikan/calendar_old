@@ -1,6 +1,6 @@
 import 'package:firebase_helpers/firebase_helpers.dart';
-import 'package:firebasestarter/core/data/res/data_constants.dart';
-import 'package:firebasestarter/features/events/data/models/app_event.dart';
+import 'package:calendar_old/core/data/data_constants.dart';
+import 'package:calendar_old/features/events/data/model/app_event.dart';
 
 final eventDBS = DatabaseService<AppEvent>(
   AppDBConstants.eventsCollection,

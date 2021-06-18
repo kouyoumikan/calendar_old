@@ -6,13 +6,13 @@ import 'package:flutter/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:package_info/package_info.dart';
-import 'package:firebasestarter/core/data/res/data_constants.dart';
-import 'package:firebasestarter/features/notification/data/service/push_notification_service.dart';
-import 'package:firebasestarter/features/profile/data/model/device.dart';
-import 'package:firebasestarter/features/profile/data/model/device_field.dart';
-import 'package:firebasestarter/features/profile/data/model/user.dart';
-import 'package:firebasestarter/features/profile/data/model/user_field.dart';
-import 'package:firebasestarter/features/profile/data/service/user_db_service.dart';
+import 'package:calendar_old/core/data/data_constants.dart';
+import 'package:calendar_old/features/service/push_notification_service.dart';
+import 'package:calendar_old/features/profile/data/model/device.dart';
+import 'package:calendar_old/features/profile/data/model/device_field.dart';
+import 'package:calendar_old/features/profile/data/model/user.dart';
+import 'package:calendar_old/features/profile/data/model/user_field.dart';
+import 'package:calendar_old/features/profile/data/service/user_db_service.dart';
 
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
@@ -139,7 +139,7 @@ class UserRepository with ChangeNotifier {
     );
     UserModel existing = await userDBS.getSingle(_user.uid);
     if (existing == null) {
-      await userDBS.createItem(user, id: _user.uid);
+      await userDBS.create(user.toMap(), id: _user.uid);
       _fsUser = user;
     } else {
       await userDBS.updateData(_user.uid, {
@@ -206,7 +206,7 @@ class UserRepository with ChangeNotifier {
         lastUpdatedAt: nowMS,
         uninstalled: false,
       );
-      await userDeviceDBS.createItem(device, id: deviceId);
+      await userDeviceDBS.create(device.toMap(), id: deviceId);
       currentDevice = device;
     }
     notifyListeners();

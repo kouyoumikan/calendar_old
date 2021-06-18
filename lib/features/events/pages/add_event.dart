@@ -1,7 +1,7 @@
-import 'package:firebasestarter/core/presentation/providers/providers.dart';
-import 'package:firebasestarter/core/presentation/res/colors.dart';
-import 'package:firebasestarter/features/events/data/models/app_event.dart';
-import 'package:firebasestarter/features/events/data/services/event_firestore_service.dart';
+import 'package:calendar_old/core/presentation/providers/providers.dart';
+import 'package:calendar_old/core/presentation/res/colors.dart';
+import 'package:calendar_old/features/events/data/model/app_event.dart';
+import 'package:calendar_old/features/events/data/services/event_firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';

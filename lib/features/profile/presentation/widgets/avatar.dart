@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebasestarter/core/presentation/res/colors.dart';
+import 'package:calendar_old/core/presentation/res/colors.dart';
 
 class Avatar extends StatelessWidget {
   final ImageProvider<dynamic> image;

@@ -1,6 +1,6 @@
-import 'package:firebasestarter/core/presentation/res/routes.dart';
-import 'package:firebasestarter/features/events/data/models/app_event.dart';
-import 'package:firebasestarter/features/events/data/services/event_firestore_service.dart';
+import 'package:calendar_old/core/presentation/res/routes.dart';
+import 'package:calendar_old/features/events/data/model/app_event.dart';
+import 'package:calendar_old/features/events/data/services/event_firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

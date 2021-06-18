@@ -75,3 +75,4 @@ class _AuthDialogState extends State<AuthDialog> {
     );
   }
 }
+

@@ -4,12 +4,12 @@ import 'package:firebase_helpers/firebase_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:firebasestarter/core/data/res/data_constants.dart';
-import 'package:firebasestarter/features/profile/data/model/user.dart';
-import 'package:firebasestarter/features/profile/data/model/user_field.dart';
-import 'package:firebasestarter/features/profile/data/service/user_db_service.dart';
-import 'package:firebasestarter/features/profile/presentation/widgets/avatar.dart';
-import 'package:firebasestarter/generated/l10n.dart';
+import 'package:calendar_old/core/data/data_constants.dart';
+import 'package:calendar_old/features/profile/data/model/user.dart';
+import 'package:calendar_old/features/profile/data/model/user_field.dart';
+import 'package:calendar_old/features/profile/data/service/user_db_service.dart';
+import 'package:calendar_old/features/profile/presentation/widgets/avatar.dart';
+import 'package:calendar_old/generated/l10n.dart';
 import 'package:path/path.dart' as Path;
 
 class EditProfile extends StatefulWidget {
@@ -155,11 +155,10 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   Future getImage(ImageSource source) async {
-    var image = await ImagePicker.pickImage(
-        source: source);
+    var image = await ImagePicker().getImage(source: source);
     if(image == null) return;
     setState(() {
-      _image = image;
+      _image = File(image.path);
       _cropImage();
       Navigator.pop(context);
     });
