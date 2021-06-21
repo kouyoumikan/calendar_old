@@ -11,8 +11,8 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
-  bool _authVisible;
-  int _selectedTab;
+  late bool _authVisible;
+  late int _selectedTab;
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _WelcomePageState extends State<WelcomePage> {
               const SizedBox(height: kToolbarHeight),
               Text(
                 S.of(context).loginPageTitleText,
-                style: Theme.of(context).textTheme.display2.copyWith(
+                style: Theme.of(context).textTheme.display2!.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
                     fontFamily: "Frank"),
@@ -84,7 +84,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: Text(S.of(context).googleButtonText),
                 onPressed: () async {
                   if (!await context.read(userRepoProvider).signInWithGoogle())
-                    _key.currentState.showSnackBar(SnackBar(
+                    _key.currentState!.showSnackBar(SnackBar(
                       content: Text("Something is wrong"),
                     ));
                 },
@@ -106,6 +106,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       _authVisible = false;
                     });
                   },
+                  key: _key,
                 ),
               ),
             )

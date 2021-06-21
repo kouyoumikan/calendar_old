@@ -17,24 +17,24 @@ import 'package:calendar_old/features/profile/data/service/user_db_service.dart'
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
 class UserRepository with ChangeNotifier {
-  FirebaseAuth _auth;
-  User _user;
-  GoogleSignIn _googleSignIn;
+  late FirebaseAuth _auth;
+  late User _user;
+  late GoogleSignIn _googleSignIn;
   Status _status = Status.Uninitialized;
-  String _error;
-  StreamSubscription _userListener;
-  UserModel _fsUser;
-  Device currentDevice;
-  final PushNotificationService pnService;
-  bool _loading;
+  late String _error;
+  late StreamSubscription _userListener;
+  late UserModel _fsUser;
+  late Device currentDevice;
+  late final PushNotificationService pnService;
+  late bool _loading;
 
-  UserRepository.instance(this.pnService)
-      : _auth = FirebaseAuth.instance,
-        _googleSignIn = GoogleSignIn(scopes: ['email']) {
-    _error = '';
-    _loading = true;
-    _auth.authStateChanges().listen(_onAuthStateChanged);
-  }
+//  UserRepository.instance(this.pnService)
+//      : _auth = FirebaseAuth.instance,
+//        _googleSignIn = GoogleSignIn(scopes: ['email']) {
+//    _error = '';
+//    _loading = true;
+//    _auth.authStateChanges().listen(_onAuthStateChanged);
+//  }
 
   String get error => _error;
   Status get status => _status;
@@ -50,7 +50,7 @@ class UserRepository with ChangeNotifier {
       _error = '';
       return true;
     } catch (e) {
-      _error = e.message;
+      //_error = e.message;
       _status = Status.Unauthenticated;
       notifyListeners();
       return false;
@@ -66,7 +66,7 @@ class UserRepository with ChangeNotifier {
       _error = '';
       return true;
     } catch (e) {
-      _error = e.message;
+      //_error = e.message;
       _status = Status.Unauthenticated;
       notifyListeners();
       return false;
@@ -77,10 +77,10 @@ class UserRepository with ChangeNotifier {
     try {
       _status = Status.Authenticating;
       notifyListeners();
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleAuth =
-      await googleUser.authentication;
-      final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+      await googleUser!.authentication;
+      final OAuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
@@ -88,7 +88,7 @@ class UserRepository with ChangeNotifier {
       _error = '';
       return true;
     } catch (e) {
-      _error = e.message;
+      //_error = e.message;
       _status = Status.Unauthenticated;
       notifyListeners();
       return false;
@@ -99,7 +99,7 @@ class UserRepository with ChangeNotifier {
     _auth.signOut();
     _googleSignIn.signOut();
     _status = Status.Unauthenticated;
-    _fsUser = null;
+    //_fsUser = null;
     _userListener.cancel();
     notifyListeners();
     return Future.delayed(Duration.zero);
@@ -108,13 +108,13 @@ class UserRepository with ChangeNotifier {
   Future<void> _onAuthStateChanged(User firebaseUser) async {
     if (firebaseUser == null) {
       _status = Status.Unauthenticated;
-      _fsUser = null;
-      _user = null;
+      //_fsUser = null;
+      //_user = null;
     } else {
       _user = firebaseUser;
       _saveUserRecord();
       _userListener = userDBS.streamSingle(_user.uid).listen((user) {
-        _fsUser = user;
+        //_fsUser = user;
         _loading = false;
         notifyListeners();
       });
@@ -127,17 +127,17 @@ class UserRepository with ChangeNotifier {
     if (_user == null) return;
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     int buildNumber = int.parse(packageInfo.buildNumber);
-    UserModel user = UserModel(
-      email: _user.email,
-      name: _user.displayName,
-      photoUrl: _user.photoURL,
-      id: _user.uid,
-      registrationDate: DateTime.now().toUtc(),
-      lastLoggedIn: DateTime.now().toUtc(),
-      buildNumber: buildNumber,
-      introSeen: false,
-    );
-    UserModel existing = await userDBS.getSingle(_user.uid);
+//    UserModel user = UserModel(
+//      email: _user.email,
+//      name: _user.displayName,
+//      photoUrl: _user.photoURL,
+//      id: _user.uid,
+//      registrationDate: DateTime.now().toUtc(),
+//      lastLoggedIn: DateTime.now().toUtc(),
+//      buildNumber: buildNumber,
+//      introSeen: false,
+//    );
+    UserModel? existing = await userDBS.getSingle(_user.uid);
     if (existing == null) {
       await userDBS.create(user.toMap(), id: _user.uid);
       _fsUser = user;
@@ -185,30 +185,30 @@ class UserRepository with ChangeNotifier {
     }
     userDeviceDBS.collection =
     "${AppDBConstants.usersCollection}/${user.id}/devices";
-    Device exsiting = await userDeviceDBS.getSingle(deviceId);
-    if (exsiting != null) {
-      var token = exsiting.token ?? await pnService.init();
-      await userDeviceDBS.updateData(deviceId, {
-        DeviceFields.lastUpdatedAt: nowMS,
-        DeviceFields.expired: false,
-        DeviceFields.uninstalled: false,
-        DeviceFields.token: token,
-      });
-      currentDevice = exsiting;
-    } else {
-      var token = await pnService.init();
-      Device device = Device(
-        createdAt: DateTime.now().toUtc(),
-        deviceInfo: deviceDescription,
-        token: token,
-        expired: false,
-        id: deviceId,
-        lastUpdatedAt: nowMS,
-        uninstalled: false,
-      );
-      await userDeviceDBS.create(device.toMap(), id: deviceId);
-      currentDevice = device;
-    }
+//    Device? exsiting = await userDeviceDBS.getSingle(deviceId);
+//    if (exsiting != null) {
+//      var token = exsiting.token ?? await pnService.init();
+//      await userDeviceDBS.updateData(deviceId, {
+//        DeviceFields.lastUpdatedAt: nowMS,
+//        DeviceFields.expired: false,
+//        DeviceFields.uninstalled: false,
+//        DeviceFields.token: token,
+//      });
+//      currentDevice = exsiting;
+//    } else {
+//      var token = await pnService.init();
+//      Device device = Device(
+//        createdAt: DateTime.now().toUtc(),
+//        deviceInfo: deviceDescription,
+//        token: token,
+//        expired: false,
+//        id: deviceId,
+//        lastUpdatedAt: nowMS,
+//        uninstalled: false,
+//      );
+//      await userDeviceDBS.create(device.toMap(), id: deviceId);
+//      currentDevice = device;
+//    }
     notifyListeners();
   }
 
@@ -217,4 +217,6 @@ class UserRepository with ChangeNotifier {
     _userListener.cancel();
     super.dispose();
   }
+
+  static instance(PushNotificationService notifService) {}
 }

@@ -4,6 +4,6 @@ import 'package:calendar_old/features/events/data/model/app_event.dart';
 
 final eventDBS = DatabaseService<AppEvent>(
   AppDBConstants.eventsCollection,
-  fromDS: (id, data) => AppEvent.fromDS(id, data),
+  fromDS: (id, data) => AppEvent.fromDS(id, data!),
   toMap: (event) => event.toMap(),
 );

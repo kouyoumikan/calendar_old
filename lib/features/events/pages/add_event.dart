@@ -11,7 +11,7 @@ class AddEventPage extends StatefulWidget {
   final DateTime selectedDate;
   final AppEvent event;
 
-  const AddEventPage({Key key, this.selectedDate, this.event})
+  const AddEventPage({required Key key, required this.selectedDate, required this.event})
       : super(key: key);
   @override
   _AddEventPageState createState() => _AddEventPageState();
@@ -39,9 +39,9 @@ class _AddEventPageState extends State<AddEventPage> {
             child: ElevatedButton(
               onPressed: () async {
                 //save
-                _formKey.currentState.save();
+                _formKey.currentState!.save();
                 final data =
-                Map<String, dynamic>.from(_formKey.currentState.value);
+                Map<String, dynamic>.from(_formKey.currentState!.value);
                 data["date"] =
                     (data["date"] as DateTime).millisecondsSinceEpoch;
                 if (widget.event != null) {

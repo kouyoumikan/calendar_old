@@ -11,14 +11,14 @@ class UserModel {
   bool introSeen;
 
   UserModel(
-      {this.id,
-        this.name,
-        this.email,
-        this.lastLoggedIn,
-        this.registrationDate,
-        this.photoUrl,
-        this.introSeen,
-        this.buildNumber});
+      {required this.id,
+        required this.name,
+        required this.email,
+        required this.lastLoggedIn,
+        required this.registrationDate,
+        required this.photoUrl,
+        required this.introSeen,
+        required this.buildNumber});
 
   UserModel.fromDS(String id, Map<String, dynamic> data):
         id = id,

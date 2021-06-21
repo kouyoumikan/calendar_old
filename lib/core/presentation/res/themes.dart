@@ -4,7 +4,7 @@ import 'package:calendar_old/core/presentation/res/colors.dart';
 import 'package:calendar_old/core/presentation/res/sizes.dart';
 
 class AppThemes {
-  static BuildContext context;
+  //static BuildContext context;
   static final ThemeData defaultTheme = ThemeData(
     primaryColor: AppColors.primaryColor,
     accentColor: AppColors.accentColor,
@@ -19,6 +19,6 @@ class AppThemes {
         borderRadius: BorderRadius.circular(AppSizes.borderRadius),
       ),
     ),
-    textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+    //textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
   );
 }

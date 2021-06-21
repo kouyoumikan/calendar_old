@@ -8,21 +8,21 @@ class AppEvent {
   final String userId;
   final bool public;
   AppEvent({
-    this.title,
-    this.id,
-    this.description,
-    this.date,
-    this.userId,
-    this.public,
+    required this.title,
+    required this.id,
+    required this.description,
+    required this.date,
+    required this.userId,
+    required this.public,
   });
 
   AppEvent copyWith({
-    String title,
-    String id,
-    String description,
-    DateTime date,
-    String userId,
-    bool public,
+    required String title,
+    required String id,
+    required String description,
+    required DateTime date,
+    required String userId,
+    required bool public,
   }) {
     return AppEvent(
       title: title ?? this.title,
@@ -46,7 +46,7 @@ class AppEvent {
   }
 
   factory AppEvent.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    //if (map == null) return null;
 
     return AppEvent(
       title: map['title'],
@@ -58,7 +58,7 @@ class AppEvent {
     );
   }
   factory AppEvent.fromDS(String id, Map<String, dynamic> data) {
-    if (data == null) return null;
+    //if (data == null) return null;
 
     return AppEvent(
       title: data['title'],

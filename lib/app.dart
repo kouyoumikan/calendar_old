@@ -15,7 +15,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AppThemes.context = context;
+    //AppThemes.context = context;
     return Consumer(builder: (context, watch, child) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,

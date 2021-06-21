@@ -5,13 +5,13 @@ import './signup.dart';
 class AuthDialog extends StatefulWidget {
   final int selectedTab;
   final Function onClose;
-  const AuthDialog({Key key, this.selectedTab, this.onClose}) : super(key: key);
+  const AuthDialog({required Key key, required this.selectedTab, required this.onClose}) : super(key: key);
   @override
   _AuthDialogState createState() => _AuthDialogState();
 }
 
 class _AuthDialogState extends State<AuthDialog> {
-  int _selectedTab;
+  late int _selectedTab;
   @override
   void initState() {
     super.initState();

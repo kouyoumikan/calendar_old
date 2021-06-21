@@ -23,7 +23,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  LinkedHashMap<DateTime, List<AppEvent>> _groupedEvents;
+  late LinkedHashMap<DateTime, List<AppEvent>> _groupedEvents;
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
   @override
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       DateTime date =
       DateTime.utc(event.date.year, event.date.month, event.date.day, 12);
       if (_groupedEvents[date] == null) _groupedEvents[date] = [];
-      _groupedEvents[date].add(event);
+      _groupedEvents[date]!.add(event);
     });
   }
 

@@ -11,9 +11,9 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   TextStyle style = TextStyle(fontSize: 20.0);
-  TextEditingController _email;
-  TextEditingController _password;
-  FocusNode _passwordField;
+  late TextEditingController _email;
+  late TextEditingController _password;
+  late FocusNode _passwordField;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -39,7 +39,7 @@ class _LoginFormState extends State<LoginForm> {
                 child: TextFormField(
                   key: Key("email-field"),
                   controller: _email,
-                  validator: (value) => (value.isEmpty)
+                  validator: (value) => (value!.isEmpty)
                       ? S.of(context).emailValidationError
                       : null,
                   decoration: InputDecoration(
@@ -60,7 +60,7 @@ class _LoginFormState extends State<LoginForm> {
                   key: Key("password-field"),
                   controller: _password,
                   obscureText: true,
-                  validator: (value) => (value.isEmpty)
+                  validator: (value) => (value!.isEmpty)
                       ? S.of(context).passwordValidationError
                       : null,
                   decoration: InputDecoration(
@@ -90,7 +90,7 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   _login() async {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       if (!await context
           .read(userRepoProvider)
           .signIn(_email.text, _password.text))

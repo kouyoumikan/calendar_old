@@ -10,11 +10,11 @@ class Avatar extends StatelessWidget {
   final bool showButton;
 
   const Avatar(
-      {Key key,
-        @required this.image,
-        this.borderColor,
+      {required Key key,
+        required this.image,
+        required this.borderColor,
         this.radius = 30,
-        this.onButtonPressed,
+        required this.onButtonPressed,
         this.showButton = false,
         this.borderWidth = 5})
       : super(key: key);
@@ -30,7 +30,7 @@ class Avatar extends StatelessWidget {
           borderColor != null ? borderColor : AppColors.primaryColorLight,
           child: CircleAvatar(
             radius: radius - borderWidth,
-            backgroundImage: image,
+            //backgroundImage: image,
           ),
         ),
         if(showButton)
@@ -43,7 +43,7 @@ class Avatar extends StatelessWidget {
               shape: CircleBorder(),
               child: Icon(Icons.camera_alt),
               padding: const EdgeInsets.all(4.0),
-              onPressed: onButtonPressed,
+              onPressed: onButtonPressed(),
             ),
           )
       ],

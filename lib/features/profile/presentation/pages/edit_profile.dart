@@ -15,7 +15,7 @@ import 'package:path/path.dart' as Path;
 class EditProfile extends StatefulWidget {
   final UserModel user;
 
-  const EditProfile({Key key, this.user}) : super(key: key);
+  const EditProfile({required Key key, required this.user}) : super(key: key);
 
   @override
   _EditProfileState createState() => _EditProfileState();
@@ -28,11 +28,11 @@ enum AppState {
 }
 
 class _EditProfileState extends State<EditProfile> {
-  TextEditingController _nameController;
-  bool _processing;
-  AppState state;
-  File _image;
-  String _uploadedFileURL;
+  late TextEditingController _nameController;
+  late bool _processing;
+  late AppState state;
+  late File _image;
+  late String _uploadedFileURL;
 
   @override
   void initState() {
@@ -52,16 +52,16 @@ class _EditProfileState extends State<EditProfile> {
         padding: const EdgeInsets.all(8.0),
         children: <Widget>[
           Center(
-            child: Avatar(
-              showButton: true,
-              onButtonPressed: _pickImageButtonPressed,
-              radius: 50,
-              image: state == AppState.cropped && _image != null
-                  ? FileImage(_image)
-                  : widget.user.photoUrl != null
-                  ? NetworkImage(widget.user.photoUrl)
-                  : null,
-            ),
+//            child: Avatar(
+//              showButton: true,
+//              onButtonPressed: _pickImageButtonPressed,
+//              radius: 50, image: null, key: null, borderColor: null,
+////              image: state == AppState.cropped
+////                  ? FileImage(_image)
+////                  : widget.user.photoUrl != null
+////                  ? NetworkImage(widget.user.photoUrl)
+////                  : null,
+//            ),
           ),
           const SizedBox(height: 10.0),
           Center(child: Text(widget.user.email)),
@@ -165,7 +165,7 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   Future<Null> _cropImage() async {
-    File croppedFile = await ImageCropper.cropImage(
+    File? croppedFile = await ImageCropper.cropImage(
       sourcePath: _image.path,
       maxWidth: 800,
       aspectRatio: CropAspectRatio(ratioX: 1.0, ratioY: 1.0),

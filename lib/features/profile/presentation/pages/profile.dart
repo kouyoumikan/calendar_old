@@ -21,13 +21,15 @@ class UserProfile extends StatelessWidget {
           children: <Widget>[
             if (user != null) ...[
               Center(
-                child: Avatar(
-                  onButtonPressed: () {},
-                  radius: 50,
-                  image: user.photoUrl != null
-                      ? NetworkImage(user.photoUrl)
-                      : null,
-                ),
+//                child: Avatar(
+//                  onButtonPressed: () {},
+//                  radius: 50,
+//                  image: user.photoUrl != null
+//                      ? NetworkImage(user.photoUrl)
+//                      : null,
+//                  key: null,
+//                  borderColor: null,
+//                ),
               ),
               const SizedBox(height: 10.0),
               if (user.name != null) ...[
@@ -36,7 +38,7 @@ class UserProfile extends StatelessWidget {
                 ),
                 const SizedBox(height: 5.0),
               ],
-              Center(child: Text(user?.email)),
+              Center(child: Text(user.email)),
             ],
             ...ListTile.divideTiles(
               color: Theme.of(context).dividerColor,
@@ -52,7 +54,7 @@ class UserProfile extends StatelessWidget {
                   leading: Icon(Icons.exit_to_app),
                   title: Text(S.of(context).logoutButtonText),
                   onTap: () async {
-                    await logEvent(context, AppAnalyticsEvents.logOut);
+                    await logEvent(context, AppAnalyticsEvents.logOut, params: {});
                     await context.read(userRepoProvider).signOut();
                     Navigator.pop(context);
                   },

@@ -9,7 +9,7 @@ class Device{
   DeviceDetails deviceInfo;
   String token;
 
-  Device({this.id, this.token,this.createdAt,this.expired,this.uninstalled,this.lastUpdatedAt,this.deviceInfo});
+  Device({required this.id, required this.token,required this.createdAt,required this.expired,required this.uninstalled,required this.lastUpdatedAt,required this.deviceInfo});
 
   Device.fromDS(String id, Map<String,dynamic> data):
         id=id,
@@ -38,14 +38,14 @@ class DeviceDetails {
   String osVersion;
   String platform;
 
-  DeviceDetails({this.device, this.model, this.osVersion, this.platform});
+  DeviceDetails({required this.device, required this.model, required this.osVersion, required this.platform});
 
-  DeviceDetails.fromJson(Map<String, dynamic> json) {
-    device = json[DeviceDetailsFields.device];
-    model = json[DeviceDetailsFields.model];
-    osVersion = json[DeviceDetailsFields.osVersion];
-    platform = json[DeviceDetailsFields.platform];
-  }
+//  DeviceDetails.fromJson(Map<String, dynamic> json) {
+//    device = json[DeviceDetailsFields.device];
+//    model = json[DeviceDetailsFields.model];
+//    osVersion = json[DeviceDetailsFields.osVersion];
+//    platform = json[DeviceDetailsFields.platform];
+//  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -55,4 +55,6 @@ class DeviceDetails {
     data[DeviceDetailsFields.platform] = this.platform;
     return data;
   }
+
+  static fromJson(data) {}
 }

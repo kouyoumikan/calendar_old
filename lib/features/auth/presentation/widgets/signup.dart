@@ -11,11 +11,11 @@ class SignupForm extends StatefulWidget {
 
 class _SignupFormState extends State<SignupForm> {
   TextStyle style = TextStyle(fontSize: 20.0);
-  TextEditingController _email;
-  TextEditingController _password;
-  TextEditingController _confirmPassword;
-  FocusNode _passwordField;
-  FocusNode _confirmPasswordField;
+  late TextEditingController _email;
+  late TextEditingController _password;
+  late TextEditingController _confirmPassword;
+  late FocusNode _passwordField;
+  late FocusNode _confirmPasswordField;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -43,7 +43,7 @@ class _SignupFormState extends State<SignupForm> {
                 child: TextFormField(
                   key: Key("email-field"),
                   controller: _email,
-                  validator: (value) => (value.isEmpty)
+                  validator: (value) => (value!.isEmpty)
                       ? S.of(context).emailValidationError
                       : null,
                   decoration: InputDecoration(
@@ -64,7 +64,7 @@ class _SignupFormState extends State<SignupForm> {
                   key: Key("password-field"),
                   controller: _password,
                   obscureText: true,
-                  validator: (value) => (value.isEmpty)
+                  validator: (value) => (value!.isEmpty)
                       ? S.of(context).passwordValidationError
                       : null,
                   decoration: InputDecoration(
@@ -84,7 +84,7 @@ class _SignupFormState extends State<SignupForm> {
                   key: Key("confirm-password-field"),
                   controller: _confirmPassword,
                   obscureText: true,
-                  validator: (value) => (value.isEmpty)
+                  validator: (value) => (value!.isEmpty)
                       ? S.of(context).confirmPasswordValidationEmptyError
                       : value.isNotEmpty &&
                       _password.text != _confirmPassword.text
@@ -118,7 +118,7 @@ class _SignupFormState extends State<SignupForm> {
   }
 
   _signup() async {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       //signup user
       if (!await context
           .read(userRepoProvider)

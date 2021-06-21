@@ -20,26 +20,40 @@ class AppRoutes {
   static const String editEvent = "edit_event";
   static const String viewEvent = "view_event";
 
+  static get user => user;
+
+  static get key => key;
+
+  static get event => event;
+
+  static get selectedDate => selectedDate;
+
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     return MaterialPageRoute(
         settings: settings,
         builder: (_) {
           switch (settings.name) {
             case editEvent:
-              return AddEventPage(event: settings.arguments);
+              return AddEventPage(
+                  key: key, selectedDate: selectedDate, event: event
+              );
             case viewEvent:
-              return EventDetails(event: settings.arguments);
+              return EventDetails(
+                  key: key, event: event
+              );
             case addEvent:
               return AddEventPage(
-                selectedDate: settings.arguments,
+                  key: key, selectedDate: selectedDate, event: event
               );
             case home:
               return AuthHomePage();
             case userInfo:
-              return UserInfoPage();
+              return UserInfoPage(
+                  key: key, user: user
+              );
             case editProfile:
               return EditProfile(
-                user: settings.arguments,
+                  key: key, user: user
               );
             case profile:
               return UserProfile();

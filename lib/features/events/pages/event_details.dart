@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 class EventDetails extends StatelessWidget {
   final AppEvent event;
 
-  const EventDetails({Key key, this.event}) : super(key: key);
+  const EventDetails({required Key key, required this.event}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
